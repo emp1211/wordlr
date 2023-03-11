@@ -8,6 +8,7 @@ import RowThree from './RowThree';
 import RowFour from './RowFour';
 import RowFive from './RowFive';
 import RowSix from './RowSix';
+import Keyboard from './Keyboard';
 
 function App() {
   
@@ -20,6 +21,7 @@ function App() {
            < RowFour />
            < RowFive />
            < RowSix /> 
+          < Keyboard />
     </div>
   );
 }
