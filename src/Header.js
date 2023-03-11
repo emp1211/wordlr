@@ -7,14 +7,14 @@ function Header() {
     return(
         <header>
             <div>
-                <img  src={menu} />
+                <img  alt="menu icon" src={menu} />
                 <div className="spacer"></div>
             </div>
             <h1>Wordlr</h1>
             <div className="icons"> 
-                <img  src={help} />
-                <img  src={stats} />
-                <img  src={settings} />
+                <img alt="help icon" src={help} />
+                <img alt="stats icon" src={stats} />
+                <img alt="settings icon" src={settings} />
             </div>
         </header>  
     )
