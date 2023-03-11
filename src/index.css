@@ -7,7 +7,155 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+/* //////   HEADER   ////// */
+
+
+header {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin-bottom: 1rem;
+  border-bottom: solid 1px darkgray;
+}
+
+img {
+  width: 2rem;
+}
+
+.spacer {
+  width: 6.5rem;
+}
+
+h1 {  
+  font-family: 'Odor Mean Chey', serif;
+  font-size: 32px;  
+  text-align: center;
+}
+
+
+/* //////   MESSAGES   ////// */
+
+
+.error {
+  color: rgb(239, 239, 239);
+  font-weight: 700;
+  background-color: rgb(50, 50, 50);
+  position: absolute;
+  top: 4.6rem;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 12rem;
+  border-radius: 6px;
+  padding: .4rem 0;
+  text-align: center;
+}
+
+@keyframes wiggle {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+.wiggle {
+  animation: wiggle 0.52s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+
+/* //////   KEYBOARD   ////// */
+
+
+.keyboard {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* //////   ROW   ////// */
+
+
+form {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  position: relative;
+  z-index: -5;
+}
+
+
+/* //////   LETTER COMPONENT   ////// */
+
+
+input, input:disabled, input:focus {
+  height: 50px;
+  width: 50px;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 2px;
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+  text-transform: uppercase;
+  caret-color: transparent;
+  background-color: white;
+  color: black;
+  border: solid rgb(211,214,218) 2px;
+  outline: none; /* Removes built-in focus */
+}
+
+.hdn-submit {
+  display: none;
+}
+
+/* Styling effects
+
+- when a letter has been typed, the outline changes
+from the light gray to rgb(135,138,140)
+
+on submit - each tile flips one time (like 180 maybe?) 
+top to bottom, or vice versa? 
+
+ on submit - background becomes rgb(135,138,140), same
+ as dark outline -- unless guess is correct
+ and in correct place:  rgb(106,170,100)
+ or correct but in wrong place: rgb(201,180,88)
+ dont forget to make color: white
+ANIMATIONS
+-on entering letter, size of border/box jumps out 
+a little and then back, maybe 10% or transform, scale: 1.1
+
+OTHER FIXES:
+-when clicking outside of input, should not un-focus
+the input, maybe click events on body, html, header, etc
+that simply event.preventDefault(); ???f
+
+
+*/
