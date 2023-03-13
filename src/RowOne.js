@@ -3,6 +3,7 @@ import { focusNextLetterBox, focusPreviousLetterBox, shiftFocusToNextRow,
          guessIsValidWord, guessMatchesAnswer, checkLetters } from "./helpers";
 import { dict } from "./dict";
 
+
 export const answer = dict[Math.floor(Math.random() * dict.length)];
 
 // Magnificent
@@ -18,27 +19,28 @@ export const answer = dict[Math.floor(Math.random() * dict.length)];
  // display congratulations message div
  // lock all inputs
 
-function RowOne() {
+function RowOne( {onChange, value, onKeyDown, onSubmit} ) {
 
   console.log(answer);
   
-  const [ guess, setGuess ] = useState([]); 
+  // const [ guess, setGuess ] = useState([]); 
   const [ isErrorVisible, setIsErrorVisible ] = useState(false); 
   const [ gameOver, setGameOver ] = useState(false);
 
-  const handleChange = event => {
-    const name = event.target.name;
-    const value = event.target.value;
-    setGuess(values => ({...values, [name]: value}));
-    event.currentTarget.style.border = 'solid rgb(135,138,140) 2px';
-    focusPreviousLetterBox(value, event.currentTarget);
-  }
+  // const handleChange = event => {
+  //   const name = event.target.name;
+  //   const value = event.target.value;
+  //   setGuess(values => ({...values, [name]: value}));
+  //   event.currentTarget.style.border = 'solid rgb(135,138,140) 2px';
+  //   focusPreviousLetterBox(value, event.currentTarget);
+  // }
 
   // Create keydown event to handle when user hits 'Backspace' on empty input
   const handleKeyDown = event => {
     focusNextLetterBox(event);
   }
 
+  /*
   // When user hits enter to submit guess
   const handleSubmit = event => {
     event.preventDefault();
@@ -74,69 +76,67 @@ function RowOne() {
           setGameOver(false);
         }, 1500);
       }
-    }
+    } 
+ }*/
 
-    
-    
- }
   return (  
    <div>
     { isErrorVisible && <div className="error">Not in word list</div> }
     { gameOver && <div className="error">Magnificent</div> }
-      <form id="row_one" onSubmit={handleSubmit} autoComplete="off" >
+      <form id="row_one" onSubmit={onSubmit} autoComplete="off" >
         <input
           id="letter_1"
           type="text"
           name="firstchar"
-          value={guess.firstchar || ""}
+          value={value.firstchar || ""}
           className="letter first-row-letter"
-          onChange={handleChange}
+          onChange={onChange}
           maxLength={1}
-          onKeyDown={handleKeyDown}
+          onKeyDown={onKeyDown}
           autoFocus
         />  
         <input
           id="letter_2"
           type="text"
           name="secondchar"
-          value={guess.secondchar || ""}
+          value={value.secondchar || ""}
           className="letter first-row-letter"
-          onChange={handleChange}
+          onChange={onChange}
           maxLength={1}
-          onKeyDown={handleKeyDown}
+          onKeyDown={onKeyDown}
           disabled
         /> 
         <input
           id="letter_3"
           type="text"
           name="thirdchar"
-          value={guess.thirdchar || ""}
+          value={value.thirdchar || ""}
           className="letter first-row-letter"
-          onChange={handleChange}
+          onChange={onChange}
           maxLength={1}
-          onKeyDown={handleKeyDown}
+          onKeyDown={onKeyDown}
           disabled
         /> 
         <input
           id="letter_4"
           type="text"
           name="fourthchar"
-          value={guess.fourthchar || ""}
+          value={value.fourthchar || ""}
           className="letter first-row-letter"
-          onChange={handleChange}
+          onChange={onChange}
           maxLength={1}
-          onKeyDown={handleKeyDown}
+          onKeyDown={onKeyDown}
           disabled
         /> 
         <input
           id="letter_5"
           type="text"
           name="fifthchar"
-          value={guess.fifthchar || ""}
+          value={value.fifthchar || ""}
           className="letter first-row-letter"
-          onChange={handleChange}
+          onChange={onChange}
           maxLength={1}
-          onKeyDown={handleKeyDown}
+          onKeyDown={onKeyDown}
           disabled
         /> 
         <input type="submit" className="hdn-submit" value="hiddenInput" />

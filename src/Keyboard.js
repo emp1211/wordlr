@@ -1,44 +1,214 @@
-import React from 'react';
 import backspace from './assets/backspace.png';
 
-function Keyboard() {
+function Keyboard( {onClick, onSubmit} )  {
 
-    return (
+        return (
         <div className="keyboard">
             <div className="row">
-                <button className="key" >Q</button>
-                <button className="key" >W</button>
-                <button className="key" >E</button>
-                <button className="key" >R</button>
-                <button className="key" >T</button>
-                <button className="key" >Y</button>
-                <button className="key" >U</button>
-                <button className="key" >I</button>
-                <button className="key" >O</button>
-                <button className="key" >P</button>
+                <button 
+                    className="key"
+                    value="q"
+                    onClick={onClick}
+                >
+                    Q
+                </button>
+                <button 
+                    className="key"
+                    value="w"
+                    onClick={onClick}
+                >
+                    W
+                </button>
+                <button 
+                    className="key"
+                    value="e"
+                    onClick={onClick}
+                >
+                    E
+                </button>
+                <button 
+                    className="key"
+                    value="r"
+                    onClick={onClick}
+                >
+                    R
+                </button>
+                <button 
+                    className="key"
+                    value="t"
+                    onClick={onClick}
+                >
+                    T
+                </button>
+                <button 
+                    className="key"
+                    value="y"
+                    onClick={onClick}
+                >
+                    Y
+                </button>
+                <button 
+                    className="key"
+                    value="u"
+                    onClick={onClick}
+                >
+                    U
+                </button>
+                <button 
+                    className="key"
+                    value="i"
+                    onClick={onClick}
+                >
+                    I
+                </button>
+                <button 
+                    className="key"
+                    value="o"
+                    onClick={onClick}
+                >
+                    O
+                </button>
+                <button 
+                    className="key"
+                    value="p"
+                    onClick={onClick}
+                >
+                    P
+                </button>
             </div>
             <div className="row">
-                <button className="key" >A</button>
-                <button className="key" >S</button>
-                <button className="key" >D</button>
-                <button className="key" >F</button>
-                <button className="key" >G</button>
-                <button className="key" >H</button>
-                <button className="key" >J</button>
-                <button className="key" >K</button>
-                <button className="key" >L</button>
+                <button 
+                    className="key"
+                    value="a"
+                    onClick={onClick}
+                >
+                    A
+                </button>
+                <button 
+                    className="key"
+                    value="s"
+                    onClick={onClick}
+                >
+                    S
+                </button>
+                <button 
+                    className="key"
+                    value="d"
+                    onClick={onClick}
+                >
+                    D
+                </button>
+                <button 
+                    className="key"
+                    value="f"
+                    onClick={onClick}
+                >
+                    F
+                </button>
+                <button 
+                    className="key"
+                    value="g"
+                    onClick={onClick}
+                >
+                    G
+                </button>
+                <button 
+                    className="key"
+                    value="h"
+                    onClick={onClick}
+                >
+                    H
+                </button>
+                <button 
+                    className="key"
+                    value="j"
+                    onClick={onClick}
+                >
+                    J
+                </button>
+                <button 
+                    className="key"
+                    value="k"
+                    onClick={onClick}
+                >
+                    K
+                </button>
+                <button 
+                    className="key"
+                    value="l"
+                    onClick={onClick}
+                >
+                    L
+                </button>
             </div>
             <div className="row" >
-                <button className="bigkey" >ENTER</button>
-                <button className="key" >S</button>
-                <button className="key" >D</button>
-                <button className="key" >F</button>
-                <button className="key" >G</button>
-                <button className="key" >H</button>
-                <button className="key" >J</button>
-                <button className="key" >K</button>
-                <button className="bigkey" >
-                    <img alt="backspace icon" src={backspace} />
+                <button
+                    form="row_one"
+                    onSubmit={onSubmit}
+                    className="bigkey"
+                    type="submit" 
+                >
+                    ENTER
+                </button>
+                <button 
+                    className="key"
+                    value="z"
+                    onClick={onClick}
+                >
+                    Z
+                </button>
+                <button 
+                    className="key"
+                    value="x"
+                    onClick={onClick}
+                >
+                    X
+                </button>
+                <button 
+                    className="key"
+                    value="c"
+                    onClick={onClick}
+                >
+                    C
+                </button>
+                <button 
+                    className="key"
+                    value="v"
+                    onClick={onClick}
+                >
+                    V
+                </button>
+                <button 
+                    className="key"
+                    value="b"
+                    onClick={onClick}
+                >
+                    B
+                </button>
+                <button 
+                    className="key"
+                    value="n"
+                    onClick={onClick}
+                >
+                    N
+                </button>
+                <button 
+                    className="key"
+                    value="m"
+                    onClick={onClick}
+                >
+                    M
+                </button>
+                <button 
+                    className="bigkey"
+                    value="delete"
+                    onClick={onClick}
+                >
+                    <img 
+                        value="delete"
+                        onClick={onClick}
+                        alt="backspace icon"
+                        src={backspace} />
                 </button>
             </div>
         </div>

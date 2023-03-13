@@ -16,10 +16,7 @@ function RowFive() {
     focusPreviousLetterBox(value, event.currentTarget);
   }
 
-  // Create keydown event to handle when user hits 'Backspace' on empty input
-  const handleKeyDown = event => {
-    focusNextLetterBox(event);
-  }
+
 
   // When user hits enter to submit guess
   const handleSubmit = event => {
@@ -69,7 +66,7 @@ function RowFive() {
             className="letter fifth-row-letter"
             onChange={handleChange}
             maxLength={1}
-            onKeyDown={handleKeyDown}
+            
             disabled
           />  
           <input
@@ -80,7 +77,7 @@ function RowFive() {
             className="letter fifth-row-letter"
             onChange={handleChange}
             maxLength={1}
-            onKeyDown={handleKeyDown}
+          
             disabled
           /> 
           <input
@@ -91,7 +88,7 @@ function RowFive() {
             className="letter fifth-row-letter"
             onChange={handleChange}
             maxLength={1}
-            onKeyDown={handleKeyDown}
+           
             disabled
           /> 
           <input
@@ -102,7 +99,7 @@ function RowFive() {
             className="letter fifth-row-letter"
             onChange={handleChange}
             maxLength={1}
-            onKeyDown={handleKeyDown}
+          
             disabled
           /> 
           <input
@@ -113,7 +110,7 @@ function RowFive() {
             className="letter fifth-row-letter"
             onChange={handleChange}
             maxLength={1}
-            onKeyDown={handleKeyDown}
+       
             disabled
           /> 
           <input type="submit" className="hdn-submit" value="hiddenInput" />

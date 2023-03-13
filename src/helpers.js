@@ -17,9 +17,9 @@ export const focusNextLetterBox = event => {
         (event.keyCode >= 65) &&
         (event.keyCode <= 90) &&
         (event.currentTarget.nextElementSibling.value !== 'hiddenInput')) {
-    event.currentTarget.setAttribute('disabled', true);
-    event.currentTarget.nextElementSibling.removeAttribute('disabled');
-    event.currentTarget.nextElementSibling.focus();
+        event.currentTarget.setAttribute('disabled', true);
+        event.currentTarget.nextElementSibling.removeAttribute('disabled');
+        event.currentTarget.nextElementSibling.focus();
     }
 };
 
