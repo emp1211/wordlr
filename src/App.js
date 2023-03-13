@@ -95,7 +95,6 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert('submitted guess!');
     let guessString = ''
 
     // Build the guessString from the guess obj to test against the answer & dictionary 
