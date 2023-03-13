@@ -91,6 +91,7 @@ function RowOne( {onChange, value, onKeyDown, onSubmit } ) {
           maxLength={1}
           onKeyDown={onKeyDown}
           autoFocus
+          readOnly
         />  
         <input
           id="letter_2"
@@ -102,6 +103,7 @@ function RowOne( {onChange, value, onKeyDown, onSubmit } ) {
           maxLength={1}
           onKeyDown={onKeyDown}
           disabled
+          readOnly
         /> 
         <input
           id="letter_3"
@@ -113,6 +115,7 @@ function RowOne( {onChange, value, onKeyDown, onSubmit } ) {
           maxLength={1}
           onKeyDown={onKeyDown}
           disabled
+          readOnly
         /> 
         <input
           id="letter_4"
@@ -124,6 +127,7 @@ function RowOne( {onChange, value, onKeyDown, onSubmit } ) {
           maxLength={1}
           onKeyDown={onKeyDown}
           disabled
+          readOnly
         /> 
         <input
           id="letter_5"
@@ -135,6 +139,7 @@ function RowOne( {onChange, value, onKeyDown, onSubmit } ) {
           maxLength={1}
           onKeyDown={onKeyDown}
           disabled
+          readOnly
         /> 
         <input type="submit" className="hdn-submit" value="hiddenInput" />
       </form>
