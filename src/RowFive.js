@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { focusNextLetterBox, focusPreviousLetterBox, shiftFocusToNextRow,
+import { focusPreviousLetterBox, shiftFocusToNextRow,
          guessIsValidWord, guessMatchesAnswer, checkLetters } from "./helpers";
 
 function RowFive() {

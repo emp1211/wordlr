@@ -1,6 +1,3 @@
-import { useState } from "react";
-import { focusNextLetterBox, focusPreviousLetterBox, shiftFocusToNextRow,
-         guessIsValidWord, guessMatchesAnswer, checkLetters } from "./helpers";
 import { dict } from "./dict";
 
 
@@ -19,13 +16,13 @@ export const answer = dict[Math.floor(Math.random() * dict.length)];
  // display congratulations message div
  // lock all inputs
 
-function RowOne( {onChange, value, onKeyDown, onSubmit} ) {
+function RowOne( {onChange, value, onKeyDown, onSubmit } ) {
 
   console.log(answer);
   
   // const [ guess, setGuess ] = useState([]); 
-  const [ isErrorVisible, setIsErrorVisible ] = useState(false); 
-  const [ gameOver, setGameOver ] = useState(false);
+  //const [ isErrorVisible, setIsErrorVisible ] = useState(false); 
+ // const [ gameOver, setGameOver ] = useState(false);
 
   // const handleChange = event => {
   //   const name = event.target.name;
@@ -36,9 +33,9 @@ function RowOne( {onChange, value, onKeyDown, onSubmit} ) {
   // }
 
   // Create keydown event to handle when user hits 'Backspace' on empty input
-  const handleKeyDown = event => {
-    focusNextLetterBox(event);
-  }
+  // const handleKeyDown = event => {
+  //   focusNextLetterBox(event);
+  // }
 
   /*
   // When user hits enter to submit guess
@@ -81,8 +78,8 @@ function RowOne( {onChange, value, onKeyDown, onSubmit} ) {
 
   return (  
    <div>
-    { isErrorVisible && <div className="error">Not in word list</div> }
-    { gameOver && <div className="error">Magnificent</div> }
+    {/* { isErrorVisible && <div className="error">Not in word list</div> }
+    { gameOver && <div className="error">Magnificent</div> } */}
       <form id="row_one" onSubmit={onSubmit} autoComplete="off" >
         <input
           id="letter_1"
