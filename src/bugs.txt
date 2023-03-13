@@ -1,0 +1,6 @@
+1. backspace img inside backspace btn 
+    is not clickable to trigger onClick handler
+
+2. checkLetters() does not discern if there is only one of a 
+    particular letter, it will for example make multiple matches 
+    yellow even if only one of that letter in the answer 

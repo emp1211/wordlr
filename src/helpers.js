@@ -31,6 +31,7 @@ export const guessIsValidWord = userGuess => {
     }  
 };
 
+/*
 export const shiftFocusToNextRow = (currRowLastLetterBox, nextRowFirstLetterBox) => {
     const currEl = document.getElementById(currRowLastLetterBox);
     currEl.setAttribute('disable', true);
@@ -38,6 +39,7 @@ export const shiftFocusToNextRow = (currRowLastLetterBox, nextRowFirstLetterBox)
     nextEl.removeAttribute('disabled');
     nextEl.focus();
 };
+*/
 
 export const guessMatchesAnswer = userGuess => {
     if (userGuess === answer) {
