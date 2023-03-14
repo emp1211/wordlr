@@ -204,11 +204,12 @@ function Keyboard( {onClick, onSubmit} )  {
                     value="delete"
                     onClick={onClick}
                 >
-                    <img 
+                    DEL
+                    {/* <img 
                         value="delete"
                         onClick={onClick}
                         alt="backspace icon"
-                        src={backspace} />
+                        src={backspace} /> */}
                 </button>
             </div>
         </div>

@@ -30,7 +30,7 @@ function App() {
                   ["letter_21", "letter_22", "letter_23", "letter_24", "letter_25"],
                   ["letter_26", "letter_27", "letter_28", "letter_29", "letter_30"]];
   const rowClassNameArr = [".first-row-letter", ".second-row-letter", ".third-row-letter", ".fourth-row-letter", ".fifth-row-letter", ".sixth-row-letter"] 
-
+  const formIdArr = ["row_one", "row_two", "row_three", "row_four", "row_five", "row_six"];
 
   const handleChange = event => {
     const name = event.target.name;
@@ -61,13 +61,17 @@ function App() {
       if (letterIndex === 0) {
         return;
       } else {
-        const currEl = document.getElementById(idArr[letterIndex - 1]);
+        const currEl = document.getElementById(idArr[rowIndex][letterIndex - 1]);
+        console.log('currEl: ');
+        console.log(currEl)
         const name = nameArr[rowIndex][letterIndex - 1];
         setGuess(values => ({...values, [name]: ""}));
         setLetterIndex(prev => prev = prev - 1);
-        currEl.style.border = 'solid rgb(211,214,218) 2px';
         currEl.removeAttribute('disabled');
         currEl.focus();
+        console.log("currEl.style.border: ");
+        console.log(currEl.style.border)
+        currEl.style.border = 'solid rgb(211,214,218) 2px';
       }
     } else if (value >= "a" && value <= "z") {
       if (letterIndex < 5) {
@@ -107,10 +111,11 @@ function App() {
     if (!guessIsValidWord(guessString)) {
       // If guess is not in dictionary, show error div
       // setIsErrorVisible(true);
-      document.getElementById('row_one').className = 'wiggle';
+      console.log("formIdArr[rowIndex]: " + formIdArr[rowIndex]);
+      document.getElementById(formIdArr[rowIndex]).className = 'wiggle';
       setTimeout(() => {
-        // setIsErrorVisible(false);
-        document.getElementById('row_one').className = '';
+      // setIsErrorVisible(false);
+      document.getElementById(formIdArr[rowIndex]).className = '';
       }, 1500);
       return; 
     } else {
