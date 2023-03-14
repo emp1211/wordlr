@@ -13,6 +13,10 @@ import { guessIsValidWord, guessMatchesAnswer,
          checkLetters } from './helpers';
 
 function App() {
+  const [ isErrorVisible, setIsErrorVisible ] = useState(false);
+  const [ gameOver, setGameOver ] = useState(false);
+  const [ winMessage, setWinMessage ] = useState(false);
+  const [ sorryMessage, setSorryMessage ] = useState(false);
   const [ guess, setGuess ] = useState({});
   const [ letterIndex, setLetterIndex ] = useState(0);
   const [ rowIndex, setRowIndex ]  = useState(0);
@@ -54,40 +58,44 @@ function App() {
 
   const handleClick = event => {
     event.preventDefault();
-    console.log("letterIndex: " + letterIndex);
-    const value = event.target.value;
-    console.log('value: ' + value);
-    if (value === "delete") {
-      if (letterIndex === 0) {
-        return;
-      } else {
-        const currEl = document.getElementById(idArr[rowIndex][letterIndex - 1]);
-        console.log('currEl: ');
-        console.log(currEl)
-        const name = nameArr[rowIndex][letterIndex - 1];
-        setGuess(values => ({...values, [name]: ""}));
-        setLetterIndex(prev => prev = prev - 1);
-        currEl.removeAttribute('disabled');
-        currEl.focus();
-        console.log("currEl.style.border: ");
-        console.log(currEl.style.border)
-        currEl.style.border = 'solid rgb(211,214,218) 2px';
+    if (!gameOver) {
+      console.log("letterIndex: " + letterIndex);
+      const value = event.target.value;
+      console.log('value: ' + value);
+      if (value === "delete") {
+        if (letterIndex === 0) {
+          return;
+        } else {
+          const currEl = document.getElementById(idArr[rowIndex][letterIndex - 1]);
+          console.log('currEl: ');
+          console.log(currEl)
+          const name = nameArr[rowIndex][letterIndex - 1];
+          setGuess(values => ({...values, [name]: ""}));
+          setLetterIndex(prev => prev = prev - 1);
+          currEl.removeAttribute('disabled');
+          currEl.focus();
+          console.log("currEl.style.border: ");
+          console.log(currEl.style.border)
+          currEl.style.border = 'solid rgb(211,214,218) 2px';
+        }
+      } else if (value >= "a" && value <= "z") {
+        if (letterIndex < 5) {
+          const currEl = document.getElementById(idArr[rowIndex][letterIndex]);
+          const name = nameArr[rowIndex][letterIndex];
+          setGuess(values => ({...values, [name]: value}));
+          setLetterIndex(prev => prev += 1);
+          currEl.style.border = 'solid rgb(135,138,140) 2px';
+          currEl.setAttribute('disabled', true);
+          currEl.nextElementSibling.removeAttribute('disabled');  
+          currEl.nextElementSibling.focus(); 
+        } else if (letterIndex === 5) {
+          console.log('rowIndex: ' + rowIndex)
+          console.log('tripped a return')
+          return;
+        }
       }
-    } else if (value >= "a" && value <= "z") {
-      if (letterIndex < 5) {
-        const currEl = document.getElementById(idArr[rowIndex][letterIndex]);
-        const name = nameArr[rowIndex][letterIndex];
-        setGuess(values => ({...values, [name]: value}));
-        setLetterIndex(prev => prev += 1);
-        currEl.style.border = 'solid rgb(135,138,140) 2px';
-        currEl.setAttribute('disabled', true);
-        currEl.nextElementSibling.removeAttribute('disabled');  
-        currEl.nextElementSibling.focus(); 
-      } else if (letterIndex === 5) {
-        console.log('rowIndex: ' + rowIndex)
-        console.log('tripped a return')
-        return;
-      }
+    } else {
+      return;
     }
   }
   
@@ -110,19 +118,23 @@ function App() {
 
     if (!guessIsValidWord(guessString)) {
       // If guess is not in dictionary, show error div
-      // setIsErrorVisible(true);
+      setIsErrorVisible(true);
       console.log("formIdArr[rowIndex]: " + formIdArr[rowIndex]);
       document.getElementById(formIdArr[rowIndex]).className = 'wiggle';
       setTimeout(() => {
-      // setIsErrorVisible(false);
+      setIsErrorVisible(false);
       document.getElementById(formIdArr[rowIndex]).className = '';
       }, 1500);
       return; 
     } else {
-      if (!guessMatchesAnswer(guessString)) {
+      if ((!guessMatchesAnswer(guessString)) && (rowIndex < 5)) {
         // Do the animation and run checkletters
         console.log("rowClassNameArr[rowIndex: ", rowClassNameArr[rowIndex])
         checkLetters(rowClassNameArr[rowIndex], guessString);
+      } else if ((!guessMatchesAnswer(guessString)) && (rowIndex === 5)) {
+        setSorryMessage(true);
+        checkLetters(rowClassNameArr[rowIndex], guessString);
+        setGameOver(true);
       } else {
         // This cryptic line below simply grabs the last letter box in the row
         // and disables it as the game is now over———event.currentTarget is the form
@@ -130,9 +142,10 @@ function App() {
         // form is the hidden input and previousSibling is then the 5th letter
         event.currentTarget.lastChild.previousSibling.setAttribute('disabled', true);
         checkLetters(rowClassNameArr[rowIndex], guessString);
-        // setGameOver(true);
+        setGameOver(true);
+        setWinMessage(true);
         setTimeout(() => {
-         // setGameOver(false);
+          setWinMessage(false);
         }, 1500);
       }
     }   
@@ -153,32 +166,45 @@ function App() {
            < RowOne 
               value={guess}
               onChange={handleChange}
-              onSubmit={handleSubmit} 
+              onSubmit={handleSubmit}
+              errorMessage={isErrorVisible}
+              winMessage={winMessage}
            />
            < RowTwo 
               value={guess}
               onChange={handleChange}
               onSubmit={handleSubmit} 
+              errorMessage={isErrorVisible}
+              winMessage={winMessage}
            />
            < RowThree
               value={guess}
               onChange={handleChange}
-              onSubmit={handleSubmit} 
+              onSubmit={handleSubmit}
+              errorMessage={isErrorVisible}
+              winMessage={winMessage} 
            />
            < RowFour
               value={guess}
               onChange={handleChange}
-              onSubmit={handleSubmit} 
+              onSubmit={handleSubmit}
+              errorMessage={isErrorVisible}
+              winMessage={winMessage}
            />
            < RowFive
               value={guess}
               onChange={handleChange}
-              onSubmit={handleSubmit} 
+              onSubmit={handleSubmit}
+              errorMessage={isErrorVisible}
+              winMessage={winMessage}
           />
            < RowSix
               value={guess}
               onChange={handleChange}
-              onSubmit={handleSubmit} 
+              onSubmit={handleSubmit}
+              errorMessage={isErrorVisible}
+              winMessage={winMessage}
+              sorryMessage={sorryMessage}
            /> 
           < Keyboard 
               onClick={handleClick}

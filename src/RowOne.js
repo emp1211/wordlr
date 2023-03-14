@@ -16,7 +16,8 @@ export const answer = dict[Math.floor(Math.random() * dict.length)];
  // display congratulations message div
  // lock all inputs
 
-function RowOne( {onChange, value, onKeyDown, onSubmit } ) {
+function RowOne( {onChange, value, onKeyDown, 
+                  onSubmit, errorMessage, winMessage } ) {
 
   console.log(answer);
   
@@ -78,8 +79,8 @@ function RowOne( {onChange, value, onKeyDown, onSubmit } ) {
 
   return (  
    <div>
-    {/* { isErrorVisible && <div className="error">Not in word list</div> }
-    { gameOver && <div className="error">Magnificent</div> } */}
+    { errorMessage && <div className="error">Not in word list</div> }
+    { winMessage && <div className="error">Magnificent</div> }
       <form id="row_one" onSubmit={onSubmit} autoComplete="off" >
         <input
           id="letter_1"

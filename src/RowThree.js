@@ -1,9 +1,10 @@
-function RowThree( {onChange, value, onKeyDown, onSubmit } ) {
+function RowThree( {onChange, value, onKeyDown, onSubmit,
+                    errorMessage, winMessage } ) {
 
   return (
     <div>
-      {/* { isErrorVisible && <div className="error">Not in word list</div> }
-      { gameOver && <div className="error">Magnificent</div> } */}
+      { errorMessage && <div className="error">Not in word list</div> }
+      { winMessage && <div className="error">Splendid</div> } 
         <form id="row_three" onSubmit={onSubmit} autoComplete="off">
           <input
             type="text"

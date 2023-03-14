@@ -1,17 +1,21 @@
-function RowSix( {onChange, value, onKeyDown, onSubmit } ) {
+import { answer } from './RowOne'
+
+function RowSix( {onChange, value, onKeyDown, onSubmit, errorMessage, 
+                  sorryMessage, winMessage } ) {
    
   return (
     <div>
-      {/* { isErrorVisible && <div class="error">Not in word list</div> }
-      { gameOver && <div className="error">Impressive</div> }
-      { sorryMessage && <div className="error">Sorry, you did not solve the puzzle</div> } */}
+      { errorMessage && <div className="error">Not in word list</div> }
+      { winMessage && <div className="error">Phew</div> } 
+      { sorryMessage && <div className="error">Sorry, you did not solve the puzzle: <br /> 
+          {answer.toUpperCase()} </div> }
         <form id="row_six" onSubmit={onSubmit} autoComplete="off">
           <input
             type="text"
             id="letter_26"
             name="twentysixthchar"
             value={value.twentysixthchar || ""}
-            className="letter sixth-row-letter"
+            className="letter sixth-row-letter" 
             onChange={onChange}
             maxLength={1}
             disabled

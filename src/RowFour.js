@@ -1,9 +1,10 @@
-function RowFour( {onChange, value, onKeyDown, onSubmit } ) {
+function RowFour( {onChange, value, onKeyDown, onSubmit,
+                  errorMessage, winMessage } ) {
 
   return (
       <div>
-        {/* { isErrorVisible && <div className="error">Not in word list</div> }
-        { gameOver && <div className="error">Impressive</div> } */}
+        { errorMessage && <div className="error">Not in word list</div> }
+        { winMessage && <div className="error">Impressive</div> } 
           <form id="row_four" onSubmit={onSubmit} autoComplete="off">
             <input
               type="text"
