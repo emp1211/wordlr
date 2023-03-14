@@ -1,4 +1,4 @@
-import backspace from './assets/backspace.png';
+// import backspace from './assets/backspace.png';
 
 function Keyboard( {onClick, onSubmit} )  {
 
