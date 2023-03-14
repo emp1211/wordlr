@@ -7,7 +7,7 @@ function RowSix( {onChange, value, onKeyDown, onSubmit, errorMessage,
     <div>
       { errorMessage && <div className="error">Not in word list</div> }
       { winMessage && <div className="error">Phew</div> } 
-      { sorryMessage && <div className="error">Sorry, you did not solve the puzzle: <br /> 
+      { sorryMessage && <div className="error">Sorry, the wordlr was: <br /> 
           {answer.toUpperCase()} </div> }
         <form id="row_six" onSubmit={onSubmit} autoComplete="off">
           <input

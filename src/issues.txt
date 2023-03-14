@@ -1,0 +1,17 @@
+1. Desktop needs keypress input functionality 
+
+2. backspace img inside backspace btn 
+    is not clickable to trigger onClick handler
+
+3. checkLetters() does not discern if there is only one of a 
+    particular letter, it will for example make multiple matches 
+    yellow even if only one of that letter in the answer 
+
+4. Fix favicon
+
+5. keyboard bg colors should update with guesses 
+
+6. clicking anywhere in the screen should not un focus 
+    the current element
+
+7. make little Wordlr title appear in mobile to the left, small font
