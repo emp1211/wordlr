@@ -82,66 +82,76 @@ function RowOne( {onChange, value, onKeyDown,
     { errorMessage && <div className="error">Not in word list</div> }
     { winMessage && <div className="error">Magnificent</div> }
       <form id="row_one" onSubmit={onSubmit} autoComplete="off" >
-        <input
-          id="letter_1"
-          type="text"
-          name="firstchar"
-          value={value.firstchar || ""}
-          className="letter first-row-letter"
-          onChange={onChange}
-          maxLength={1}
-          onKeyDown={onKeyDown}
-          autoFocus
-          readOnly
-        />  
-        <input
-          id="letter_2"
-          type="text"
-          name="secondchar"
-          value={value.secondchar || ""}
-          className="letter first-row-letter"
-          onChange={onChange}
-          maxLength={1}
-          onKeyDown={onKeyDown}
-          disabled
-          readOnly
-        /> 
-        <input
-          id="letter_3"
-          type="text"
-          name="thirdchar"
-          value={value.thirdchar || ""}
-          className="letter first-row-letter"
-          onChange={onChange}
-          maxLength={1}
-          onKeyDown={onKeyDown}
-          disabled
-          readOnly
-        /> 
-        <input
-          id="letter_4"
-          type="text"
-          name="fourthchar"
-          value={value.fourthchar || ""}
-          className="letter first-row-letter"
-          onChange={onChange}
-          maxLength={1}
-          onKeyDown={onKeyDown}
-          disabled
-          readOnly
-        /> 
-        <input
-          id="letter_5"
-          type="text"
-          name="fifthchar"
-          value={value.fifthchar || ""}
-          className="letter first-row-letter"
-          onChange={onChange}
-          maxLength={1}
-          onKeyDown={onKeyDown}
-          disabled
-          readOnly
-        /> 
+        <div className="tile-container tc-0">
+          <input
+            id="letter_1"
+            type="text"
+            name="firstchar"
+            value={value.firstchar || ""}
+            className="letter first-row-letter"
+            onChange={onChange}
+            maxLength={1}
+            onKeyDown={onKeyDown}
+            autoFocus
+            readOnly
+          />  
+        </div>
+        <div className="tile-container tc-0">
+          <input
+            id="letter_2"
+            type="text"
+            name="secondchar"
+            value={value.secondchar || ""}
+            className="letter first-row-letter"
+            onChange={onChange}
+            maxLength={1}
+            onKeyDown={onKeyDown}
+            disabled
+            readOnly
+          /> 
+        </div>
+        <div className="tile-container tc-0">
+          <input
+            id="letter_3"
+            type="text"
+            name="thirdchar"
+            value={value.thirdchar || ""}
+            className="letter first-row-letter"
+            onChange={onChange}
+            maxLength={1}
+            onKeyDown={onKeyDown}
+            disabled
+            readOnly
+          /> 
+        </div>
+        <div className="tile-container tc-0">
+          <input
+            id="letter_4"
+            type="text"
+            name="fourthchar"
+            value={value.fourthchar || ""}
+            className="letter first-row-letter"
+            onChange={onChange}
+            maxLength={1}
+            onKeyDown={onKeyDown}
+            disabled
+            readOnly
+          /> 
+        </div>
+        <div className="tile-container tc-0">
+          <input
+            id="letter_5"
+            type="text"
+            name="fifthchar"
+            value={value.fifthchar || ""}
+            className="letter first-row-letter"
+            onChange={onChange}
+            maxLength={1}
+            onKeyDown={onKeyDown}
+            disabled
+            readOnly
+          /> 
+        </div>
         <input type="submit" className="hdn-submit" value="hiddenInput" />
       </form>
     </div>

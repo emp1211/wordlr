@@ -33,7 +33,7 @@ function App() {
                   ["letter_16", "letter_17", "letter_18", "letter_19", "letter_20"],
                   ["letter_21", "letter_22", "letter_23", "letter_24", "letter_25"],
                   ["letter_26", "letter_27", "letter_28", "letter_29", "letter_30"]];
-  const rowClassNameArr = [".first-row-letter", ".second-row-letter", ".third-row-letter", ".fourth-row-letter", ".fifth-row-letter", ".sixth-row-letter"] 
+  const rowClassNameArr = [".tc-0", ".tc-1", ".tc-2", ".tc-3", ".tc-4", ".tc-5"] 
   const formIdArr = ["row_one", "row_two", "row_three", "row_four", "row_five", "row_six"];
 
   const handleChange = event => {
@@ -76,7 +76,7 @@ function App() {
           currEl.focus();
           console.log("currEl.style.border: ");
           console.log(currEl.style.border)
-          currEl.style.border = 'solid rgb(211,214,218) 2px';
+          currEl.parentElement.style.border = 'solid rgb(211,214,218) 2px';
         }
       } else if (value >= "a" && value <= "z") {
         if (letterIndex < 5) {
@@ -84,7 +84,7 @@ function App() {
           const name = nameArr[rowIndex][letterIndex];
           setGuess(values => ({...values, [name]: value}));
           setLetterIndex(prev => prev += 1);
-          currEl.style.border = 'solid rgb(135,138,140) 2px';
+          currEl.parentElement.style.border = 'solid rgb(135,138,140) 2px';
           currEl.setAttribute('disabled', true);
           currEl.nextElementSibling.removeAttribute('disabled');  
           currEl.nextElementSibling.focus(); 
@@ -130,10 +130,10 @@ function App() {
       if ((!guessMatchesAnswer(guessString)) && (rowIndex < 5)) {
         // Do the animation and run checkletters
         console.log("rowClassNameArr[rowIndex: ", rowClassNameArr[rowIndex])
-        checkLetters(rowClassNameArr[rowIndex], guessString);
+        checkLetters(rowClassNameArr[rowIndex], guessString, rowIndex);
       } else if ((!guessMatchesAnswer(guessString)) && (rowIndex === 5)) {
         setSorryMessage(true);
-        checkLetters(rowClassNameArr[rowIndex], guessString);
+        checkLetters(rowClassNameArr[rowIndex], guessString, rowIndex);
         setGameOver(true);
       } else {
         // This cryptic line below simply grabs the last letter box in the row
@@ -141,7 +141,7 @@ function App() {
         // element because we are in the handleSubmit function———lastChild of the 
         // form is the hidden input and previousSibling is then the 5th letter
         event.currentTarget.lastChild.previousSibling.setAttribute('disabled', true);
-        checkLetters(rowClassNameArr[rowIndex], guessString);
+        checkLetters(rowClassNameArr[rowIndex], guessString, rowIndex);
         setGameOver(true);
         setWinMessage(true);
         setTimeout(() => {

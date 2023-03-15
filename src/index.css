@@ -88,43 +88,163 @@ h1 {
   }
 }
 
-.flip-0 {
-  animation-name: flip;
-  animation-duration: 0.5s;
-}
 
-.flip-1 {
-  animation-name: flip;
-  animation-duration: 0.5s;
-  animation-delay: 0.5s;
-}
 
-.flip-2 {
-  animation-name: flip;
-  animation-duration: 0.5s;
-  animation-delay: 1s;
-}
+/*//////   FLIP-GREEN   //////*/
 
-.flip-3 {
-  animation-name: flip;
-  animation-duration: 0.5s;
-  animation-delay: 1.5s;
-}
 
-.flip-4 {
-  animation-name: flip;
-  animation-duration: 0.5s;
-  animation-delay: 2s;
-}
-
-@keyframes flip {
+@keyframes flipgreen {
   from {
     transform: rotateX(0deg);
   }
   to {
     transform: rotateX(180deg);
+    background-color: rgb(106,170,100);
+    border: solid rgb(106,170,100) 2px;
   }
 }
+
+
+.flip-green-0, .flip-green-1, .flip-green-2, 
+.flip-green-3, .flip-green-4 {
+  animation-name: flipgreen;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.flip-green-1 {
+  animation-delay: 0.5s;
+}
+
+.flip-green-2 {
+  animation-delay: 1s;
+}
+
+.flip-green-3 {
+  animation-delay: 1.5s;
+}
+
+.flip-green-4 {
+  animation-delay: 2s;
+}
+
+
+
+
+/*//////   FLIP-GOLD   //////*/
+
+
+@keyframes flipgold {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(180deg);
+    background-color: rgb(201,180,88);
+    border: solid rgb(201,180,88) 2px;
+  }
+}
+
+.flip-gold-0, .flip-gold-1, .flip-gold-2, 
+.flip-gold-3, .flip-gold-4 {
+  animation-name: flipgold;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.flip-gold-1 {
+  animation-delay: 0.5s;
+}
+
+.flip-gold-2 {
+  animation-delay: 1s;
+}
+
+.flip-gold-3 {
+  animation-delay: 1.5s;
+}
+
+.flip-gold-4 {
+  animation-delay: 2s;
+}
+
+
+/*//////   FLIP-GRAY   //////*/
+
+
+@keyframes flipgray {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(180deg);
+    background-color: rgb(135,138,140);
+    border: solid rgb(135,138,140) 2px;
+  }
+}
+
+.flip-gray-0, .flip-gray-1, .flip-gray-2, 
+.flip-gray-3, .flip-gray-4 {
+  animation-name: flipgray;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.flip-gray-1 {
+  animation-delay: 0.5s;
+}
+
+.flip-gray-2 {
+  animation-delay: 1s;
+}
+
+.flip-gray-3 {
+  animation-delay: 1.5s;
+}
+
+.flip-gray-4 {
+  animation-delay: 2s;
+}
+
+
+/*//////   DONT_FLIP   //////*/
+
+
+@keyframes dontflip {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(180deg);
+    color: white;
+  }
+}
+
+.dont-flip-0, .dont-flip-1, .dont-flip-2,
+.dont-flip-3, .dont-flip-4 {
+  animation-name: dontflip;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.dont-flip-1 {
+  animation-duration: 0.5s;
+  animation-delay: 0.5s;
+}
+
+.dont-flip-2 {
+  animation-delay: 1s;
+}
+
+.dont-flip-3 {
+  animation-delay: 1.5s;
+}
+
+.dont-flip-4 {
+  animation-delay: 2s;
+}
+
+
 
 .wiggle {
   animation: wiggle 0.52s cubic-bezier(.36,.07,.19,.97) both;
@@ -193,20 +313,30 @@ form {
 
 /* //////   LETTER COMPONENT   ////// */
 
-
-input, input:disabled, input:focus {
+.tile-container {
   height: 56px;
   width: 56px;
+  margin: 2px;
+  box-sizing: content-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid rgb(211,214,218) 2px;
+}
+
+
+input, input:disabled, input:focus {
+  height: 44px;
+  width: 44px;
   font-size: 32px;
   font-weight: 700;
-  margin: 2px;
   text-align: center;
   font-family: Helvetica, sans-serif;
   text-transform: uppercase;
   caret-color: transparent;
-  background-color: white;
+  background-color: transparent;
   color: black;
-  border: solid rgb(211,214,218) 2px;
+  border: none;
   outline: none; /* Removes built-in focus */
 }
 
@@ -216,17 +346,13 @@ input, input:disabled, input:focus {
 
 /* Styling effects
 
-- when a letter has been typed, the outline changes
-from the light gray to rgb(135,138,140)
-
-on submit - each tile flips one time (like 180 maybe?) 
-top to bottom, or vice versa? 
 
  on submit - background becomes rgb(135,138,140), same
  as dark outline -- unless guess is correct
  and in correct place:  rgb(106,170,100)
  or correct but in wrong place: rgb(201,180,88)
  dont forget to make color: white
+
 ANIMATIONS
 -on entering letter, size of border/box jumps out 
 a little and then back, maybe 10% or transform, scale: 1.1

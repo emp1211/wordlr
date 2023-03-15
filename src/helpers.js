@@ -49,24 +49,24 @@ export const guessMatchesAnswer = userGuess => {
     }
 };
 
-export const checkLetters = (inputRow, userGuess) => {
+export const checkLetters = (inputRow, userGuess, row) => {
     const letterTiles = document.querySelectorAll(inputRow);
     for (let i = 0; i < userGuess.length; i++) {
-                    letterTiles[i].style.color = 'white';
             if (userGuess[i] === answer[i]) {
-                letterTiles[i].style.backgroundColor = 'rgb(106,170,100)';
-                letterTiles[i].style.border = 'solid rgb(106,170,100) 2px';
+                letterTiles[i].classList.add("flip-green-" + i);
             } else if (answer.includes(userGuess[i])) {
-                letterTiles[i].style.backgroundColor = 'rgb(201,180,88)';
-                letterTiles[i].style.border = 'solid rgb(201,180,88) 2px';
+                letterTiles[i].classList.add("flip-gold-" + i);
             } else {
-                letterTiles[i].style.backgroundColor = 'rgb(135,138,140)';
-                letterTiles[i].style.border = 'solid rgb(135,138,140) 2px';
+                letterTiles[i].classList.add("flip-gray-" + i);
             }
-            letterTiles[i].className = "flip-" + i;
+            // letterTiles[i].classList.add("flip-" + i);
+            let count;
+            if (row === 0) count = 0;
+            else count = row * 5;
+            document.getElementById('letter_' + (count + i + 1)).className = 'dont-flip-' + i;
             console.log(letterTiles[i].className);
             setTimeout(() => {
-            letterTiles[i].className = '';
+            // letterTiles[i].classList.remove('flip-' + i);
             }, 3001);
     
     }
