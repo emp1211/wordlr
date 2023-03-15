@@ -88,6 +88,44 @@ h1 {
   }
 }
 
+.flip-0 {
+  animation-name: flip;
+  animation-duration: 0.5s;
+}
+
+.flip-1 {
+  animation-name: flip;
+  animation-duration: 0.5s;
+  animation-delay: 0.5s;
+}
+
+.flip-2 {
+  animation-name: flip;
+  animation-duration: 0.5s;
+  animation-delay: 1s;
+}
+
+.flip-3 {
+  animation-name: flip;
+  animation-duration: 0.5s;
+  animation-delay: 1.5s;
+}
+
+.flip-4 {
+  animation-name: flip;
+  animation-duration: 0.5s;
+  animation-delay: 2s;
+}
+
+@keyframes flip {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(180deg);
+  }
+}
+
 .wiggle {
   animation: wiggle 0.52s cubic-bezier(.36,.07,.19,.97) both;
   transform: translate3d(0, 0, 0);

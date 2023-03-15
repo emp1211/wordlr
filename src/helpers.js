@@ -52,16 +52,22 @@ export const guessMatchesAnswer = userGuess => {
 export const checkLetters = (inputRow, userGuess) => {
     const letterTiles = document.querySelectorAll(inputRow);
     for (let i = 0; i < userGuess.length; i++) {
-        letterTiles[i].style.color = 'white';
-        if (userGuess[i] === answer[i]) {
-            letterTiles[i].style.backgroundColor = 'rgb(106,170,100)';
-            letterTiles[i].style.border = 'solid rgb(106,170,100) 2px';
-        } else if (answer.includes(userGuess[i])) {
-            letterTiles[i].style.backgroundColor = 'rgb(201,180,88)';
-            letterTiles[i].style.border = 'solid rgb(201,180,88) 2px';
-        } else {
-            letterTiles[i].style.backgroundColor = 'rgb(135,138,140)';
-            letterTiles[i].style.border = 'solid rgb(135,138,140) 2px';
-        }
+                    letterTiles[i].style.color = 'white';
+            if (userGuess[i] === answer[i]) {
+                letterTiles[i].style.backgroundColor = 'rgb(106,170,100)';
+                letterTiles[i].style.border = 'solid rgb(106,170,100) 2px';
+            } else if (answer.includes(userGuess[i])) {
+                letterTiles[i].style.backgroundColor = 'rgb(201,180,88)';
+                letterTiles[i].style.border = 'solid rgb(201,180,88) 2px';
+            } else {
+                letterTiles[i].style.backgroundColor = 'rgb(135,138,140)';
+                letterTiles[i].style.border = 'solid rgb(135,138,140) 2px';
+            }
+            letterTiles[i].className = "flip-" + i;
+            console.log(letterTiles[i].className);
+            setTimeout(() => {
+            letterTiles[i].className = '';
+            }, 3001);
+    
     }
 };
